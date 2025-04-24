@@ -1,7 +1,9 @@
 ## Front-end
- 
+ ````
    cd pncp-react-frontend
+````
    npm install
+
    npm start
   
  
