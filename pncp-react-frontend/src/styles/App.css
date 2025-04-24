@@ -1,0 +1,246 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.App {
+
+    padding: 20px;
+}
+/* Estilo global para o título principal */
+h1 { 
+    color: #3d3d3d;
+    text-align: center; /* Centraliza apenas o H1 */
+    margin-bottom: 30px; /* Mais espaço abaixo do título */
+}
+
+/* Container principal para layout lado a lado */
+.main-container {
+    display: flex;
+    gap: 20px; /* Espaço entre os containers */
+    align-items: flex-start; /* Alinha no topo */
+    width: 95%;
+    max-width: 1400px; /* Largura máxima para telas grandes */
+    margin: 20px auto;
+}
+
+/* Container do formulário */
+.form-container {
+    flex: 1; /* Proporção de largura */
+    max-width: 300px; /* Largura máxima fixa */
+    background: #e0e0e0; /* Fundo branco */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Padding incluído na largura/altura */
+    /* Scroll para o formulário */
+    max-height: 80vh; /* Altura máxima igual à dos resultados */
+    overflow-y: auto; /* Scroll vertical se necessário */
+    padding-right: 10px; /* Espaço para barra de rolagem não colar */
+}
+
+/* Estilos para o formulário dentro do container */
+.search-form {
+
+    display: flex; /* Para organizar os campos */
+    flex-direction: column; /* Campos um abaixo do outro */
+    gap: 15px; /* Espaço entre os divs dos campos */
+}
+
+.search-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+    color: #333;
+}
+
+.search-form input,
+.search-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    box-sizing: border-box; /* Importante */
+    font-size: 1em;
+}
+ 
+.search-form button {
+    background: #5cb85c;
+    color: rgb(17, 16, 16);
+    border: none;
+    padding: 12px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1em;
+    margin-top: 10px; /* Espaço acima do botão */
+    transition: background-color 0.2s ease; /* Transição suave */
+} 
+
+
+
+.search-form button:hover:not(:disabled) {
+    background: #4cae4c;
+}
+
+.search-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Container dos resultados */
+.results-container {
+    flex: 3; /* Proporção de largura (maior) */
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 80vh; /* Altura máxima */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;  
+    box-sizing: border-box;
+}
+
+/* Wrapper interno para lista + paginação (dentro de results-container) */
+.licitacoes-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.licitacoes-list-wrapper h2 {  
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    margin-top: 0;  
+    text-align: left;
+    color: #333;
+    font-size: 1.3em;
+    flex-shrink: 0;
+}
+
+/* Container da lista com scroll */
+.list-scroll-container {
+    flex-grow: 1; /* Ocupa o espaço vertical restante */
+    overflow-y: auto; /* Scroll vertical apenas para a lista */
+    padding-right: 10px; /* Espaço para barra de rolagem */
+    margin-bottom: 15px; /* Espaço antes da paginação */
+}
+
+.list-scroll-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Item individual da licitação */
+.licitacao-item {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    text-align: left;
+}
+
+.licitacao-item:last-child {
+    margin-bottom: 0; /* Remove margem do último item */
+}
+
+.licitacao-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #333;
+}
+
+.licitacao-item p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #3d3a3a;
+    line-height: 1.4;  
+}
+
+.licitacao-item strong {
+    color: #333;
+}
+
+/* Mensagens de Info e Erro */
+.info-message, .error-message {
+    color: #777;
+    font-style: italic;
+    padding: 20px;
+    text-align: center;
+    margin: auto; /* Centraliza verticalmente se for o único conteúdo */
+}
+
+.error-message {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+/* Estilos para Paginação */
+.pagination-controls {
+    padding-top: 15px;
+    margin-top: auto; 
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.pagination-controls button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+
+.pagination-controls button:disabled {
+    background-color: #f9f9f9;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination-controls span {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Estilos para Spinner */
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 150px;
+    margin: auto; /* Centraliza verticalmente */
+}
+
+.spinner::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #5cb85c;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
