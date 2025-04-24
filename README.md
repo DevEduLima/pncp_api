@@ -1,4 +1,6 @@
-## Front-end
+## To start
+
+### Front-end
  ````
    cd pncp-react-frontend
  ````
@@ -9,7 +11,7 @@
    npm start
  ````
  
-## Server
+### Server
  ````
    npm install
  ````
